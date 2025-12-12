@@ -56,8 +56,8 @@ export default function Agenda() {
         <button
           onClick={() => setActiveDay("day1")}
           className={`rounded px-6 py-3 font-mono text-xs uppercase tracking-widest transition-all ${activeDay === "day1"
-              ? "bg-black text-white"
-              : "border border-black/20 text-black hover:bg-black/5"
+            ? "bg-black text-white"
+            : "border border-black/20 text-black hover:bg-black/5"
             }`}
         >
           Día 1 - Agosto 25
@@ -65,8 +65,8 @@ export default function Agenda() {
         <button
           onClick={() => setActiveDay("day2")}
           className={`rounded px-6 py-3 font-mono text-xs uppercase tracking-widest transition-all ${activeDay === "day2"
-              ? "bg-black text-white"
-              : "border border-black/20 text-black hover:bg-black/5"
+            ? "bg-black text-white"
+            : "border border-black/20 text-black hover:bg-black/5"
             }`}
         >
           Día 2 - Agosto 26
@@ -82,14 +82,14 @@ export default function Agenda() {
             <div className="flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
               <div className="flex-1">
                 <div className="mb-2 flex items-center gap-3">
-                  <span className="font-mono text-sm text-white/60">{item.time}</span>
+                  <span className="font-mono text-sm text-black">{item.time}</span>
                   <span className={`rounded px-2 py-1 font-mono text-xs uppercase ${typeColors[item.type as keyof typeof typeColors]}`}>
                     {item.type}
                   </span>
                 </div>
-                <h3 className="text-lg font-medium text-white">{item.title}</h3>
+                <h3 className="text-lg font-medium text-black">{item.title}</h3>
                 {item.speaker && (
-                  <p className="mt-1 text-sm text-white/60">por {item.speaker}</p>
+                  <p className="mt-1 text-sm text-black">por {item.speaker}</p>
                 )}
               </div>
             </div>
