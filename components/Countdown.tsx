@@ -27,9 +27,13 @@ export default function Countdown() {
     return { days: 0, hours: 0, minutes: 0, seconds: 0 };
   };
 
-  const [timeLeft, setTimeLeft] = useState<TimeLeft>(calculateTimeLeft());
+  const [timeLeft, setTimeLeft] = useState<TimeLeft>({ days: 0, hours: 0, minutes: 0, seconds: 0 });
+  const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
+    setMounted(true);
+    setTimeLeft(calculateTimeLeft());
+
     const timer = setInterval(() => {
       setTimeLeft(calculateTimeLeft());
     }, 1000);
@@ -40,14 +44,14 @@ export default function Countdown() {
   return (
     <div className="relative w-full overflow-hidden bg-[#00ff88] py-16">
       <div className="absolute left-0 top-0 w-full animate-marquee whitespace-nowrap border-b border-black/20 py-2 font-mono text-xs uppercase tracking-widest text-black">
-        <span className="inline-block px-4">BREAKPOINT 2025 • SEE YOU SOON • BREAKPOINT 2025 • SEE YOU SOON • BREAKPOINT 2025 • SEE YOU SOON • BREAKPOINT 2025 • SEE YOU SOON • BREAKPOINT 2025 • SEE YOU SOON • </span>
+        <span className="inline-block px-4">DEVOPSDAYS LIMA 2026 • SEE YOU SOON • DEVOPSDAYS LIMA 2026 • SEE YOU SOON • DEVOPSDAYS LIMA 2026 • SEE YOU SOON • DEVOPSDAYS LIMA 2026 • SEE YOU SOON • </span>
       </div>
 
       <div className="mx-auto max-w-6xl px-4 pt-12">
         <div className="grid grid-cols-2 gap-8 md:grid-cols-4">
           <div className="text-center">
             <div className="font-mono text-7xl font-bold leading-none text-black md:text-8xl">
-              {timeLeft.days}
+              {mounted ? timeLeft.days : "--"}
             </div>
             <div className="mt-2 font-mono text-xs uppercase tracking-widest text-black/70">
               DAYS
@@ -55,7 +59,7 @@ export default function Countdown() {
           </div>
           <div className="text-center">
             <div className="font-mono text-7xl font-bold leading-none text-black md:text-8xl">
-              {timeLeft.hours}
+              {mounted ? timeLeft.hours : "--"}
             </div>
             <div className="mt-2 font-mono text-xs uppercase tracking-widest text-black/70">
               HOURS
@@ -63,7 +67,7 @@ export default function Countdown() {
           </div>
           <div className="text-center">
             <div className="font-mono text-7xl font-bold leading-none text-black md:text-8xl">
-              {timeLeft.minutes}
+              {mounted ? timeLeft.minutes : "--"}
             </div>
             <div className="mt-2 font-mono text-xs uppercase tracking-widest text-black/70">
               MINUTES
@@ -71,7 +75,7 @@ export default function Countdown() {
           </div>
           <div className="text-center">
             <div className="font-mono text-7xl font-bold leading-none text-black md:text-8xl">
-              {timeLeft.seconds}
+              {mounted ? timeLeft.seconds : "--"}
             </div>
             <div className="mt-2 font-mono text-xs uppercase tracking-widest text-black/70">
               SECONDS
@@ -81,7 +85,7 @@ export default function Countdown() {
       </div>
 
       <div className="absolute bottom-0 left-0 w-full animate-marquee-reverse whitespace-nowrap border-t border-black/20 py-2 font-mono text-xs uppercase tracking-widest text-black">
-        <span className="inline-block px-4">BREAKPOINT 2025 • SEE YOU SOON • BREAKPOINT 2025 • SEE YOU SOON • BREAKPOINT 2025 • SEE YOU SOON • BREAKPOINT 2025 • SEE YOU SOON • BREAKPOINT 2025 • SEE YOU SOON • </span>
+        <span className="inline-block px-4">DEVOPSDAYS LIMA 2026 • SEE YOU SOON • DEVOPSDAYS LIMA 2026 • SEE YOU SOON • DEVOPSDAYS LIMA 2026 • SEE YOU SOON • DEVOPSDAYS LIMA 2026 • SEE YOU SOON • </span>
       </div>
     </div>
   );
